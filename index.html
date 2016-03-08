@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Angular Chosen</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -88,10 +86,12 @@
   color: #90a959;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -99,248 +99,279 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <!-- <img src="images/logo.png" /> -->
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
+      <div id="toc"></div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a target="_blank" href='https://github.com/leocaseiro/angular-chosen/releases'>Angular Chosen v1.2.0</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <h1 id="angular-chosen-localytics">Angular Chosen Localytics <a href="https://github.com/leocaseiro/angular-chosen"><img alt="bower" src="https://img.shields.io/badge/bower-v1.2.0-brightgreen.svg" /></a> <a href="https://www.npmjs.com/package/angular-chosen-localytics"><img alt="npm" src="https://img.shields.io/badge/npm-v1.2.0-brightgreen.svg" /></a></h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>AngularJS Chosen directive</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>This directive brings the <a href="http://harvesthq.github.com/chosen/">Chosen</a> jQuery plugin
+into AngularJS with ngModel and ngOptions integration.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>Angular version 1.2+ is required.
+<aside class="warning">WARNING: Since the version <strong>1.2.0</strong> the file <strong>./chosen.js</strong> is deprecated and you must include <strong>./dist/angular-chosen.js</strong> or <strong>./dist/angular-chosen.min.js</strong> instead</aside></p>
 
-<h1 id="authentication">Authentication</h1>
+<h1 id="get-started">Get Started</h1>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="installation">Installation</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<h3 id="install-via-bower">install via bower</h3>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>bower install angular-chosen-localytics &ndash;save</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<aside class="notice">If you use <strong>Yeoman</strong> or <strong>bower install</strong>, you need to rename the <strong>chosen.jquery.js</strong> or the <strong>chosen.proto.js</strong> to <strong>chosen.js</strong>. Otherwise <strong>chosen.js</strong> won&rsquo;t be included in your <strong>index.html</strong>.</aside>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<h3 id="install-via-npm">install via npm</h3>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<blockquote>
+<p>npm install angular-chosen-localytics &ndash;save</p>
+</blockquote>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<h3 id="download-files">Download files</h3>
+
+<ul>
+<li><svg aria-hidden="true" class="octicon octicon-file-zip text-muted" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M8.5 1H1C0.45 1 0 1.45 0 2v12c0 0.55 0.45 1 1 1h10c0.55 0 1-0.45 1-1V4.5L8.5 1z m2.5 13H1V2h3v1h1v-1h3l3 3v9zM5 4v-1h1v1h-1z m-1 0h1v1h-1v-1z m1 2v-1h1v1h-1z m-1 0h1v1h-1v-1z m1 2v-1h1v1h-1z m-1 1.28c-0.59 0.34-1 0.98-1 1.72v1h4v-1c0-1.11-0.89-2-2-2v-1h-1v1.28z m2 0.72v1H4v-1h2z"></path></svg> <a href="https://github.com/leocaseiro/angular-chosen/archive/1.2.0.zip">angular-chosen-1.2.0.zip</a></li>
+<li><svg aria-hidden="true" class="octicon octicon-file-zip text-muted" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M8.5 1H1C0.45 1 0 1.45 0 2v12c0 0.55 0.45 1 1 1h10c0.55 0 1-0.45 1-1V4.5L8.5 1z m2.5 13H1V2h3v1h1v-1h3l3 3v9zM5 4v-1h1v1h-1z m-1 0h1v1h-1v-1z m1 2v-1h1v1h-1z m-1 0h1v1h-1v-1z m1 2v-1h1v1h-1z m-1 1.28c-0.59 0.34-1 0.98-1 1.72v1h4v-1c0-1.11-0.89-2-2-2v-1h-1v1.28z m2 0.72v1H4v-1h2z"></path></svg> <a href="https://github.com/leocaseiro/angular-chosen/archive/1.2.0.tar.gz">angular-chosen-1.2.0.tar.gz</a></li>
+</ul>
+
+<h2 id="include-libraries">Include libraries</h2>
+<pre class="highlight html"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"./bower_components/chosen/chosen.css"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./bower_components/jquery/dist/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./bower_components/angular/angular.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./bower_components/chosen/chosen.jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./bower_components/angular-chosen-localytics/dist/angular-chosen.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+
+<aside class="notice">Make sure you <a target="_blank" href="https://docs.angularjs.org/api/ng/function/angular.element">include jQuery before Angular</a>!</aside>
+
+<h2 id="dependency-injection">Dependency Injection</h2>
+
+<p>Include `&lsquo;localytics.directives&rsquo; as dependency in your Angular Module</p>
+<pre class="highlight javascript"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'App'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'localytics.directives'</span><span class="p">])</span>
+</code></pre>
+
+<h2 id="directive-chosen-on-lt-select-gt">Directive chosen on &lt;select&gt;</h2>
+
+<p>Use the <strong>chosen</strong> directive as an attribute on any <strong>&lt;select&gt;</strong> element.</p>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">chosen</span><span class="nt">&gt;</span>...<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+
+<h1 id="usage">Usage</h1>
+
+<h2 id="simple-example">Simple example</h2>
+
+<p>Similar to <code class="prettyprint">$(&quot;#states&quot;).chosen()</code></p>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">chosen</span> <span class="na">multiple</span> <span class="na">id=</span><span class="s">"states"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"AK"</span><span class="nt">&gt;</span>Alaska<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"AZ"</span><span class="nt">&gt;</span>Arizona<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"AR"</span><span class="nt">&gt;</span>Arkansas<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"CA"</span><span class="nt">&gt;</span>California<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+
+<h2 id="chosen-options">chosen options</h2>
+
+<p>Pass any chosen options as attributes</p>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">chosen</span>
+        <span class="na">data-placeholder=</span><span class="s">"Pick one of these"</span>
+        <span class="na">disable-search=</span><span class="s">"true"</span>
+        <span class="na">allow-single-deselect=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;&lt;/option&gt;</span>
+  <span class="nt">&lt;option&gt;</span>This is fun<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option&gt;</span>I like Chosen so much<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option&gt;</span>I also like bunny rabbits<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+
+<aside class="warning">Note: the empty <strong>&lt;option value=&ldquo;&rdquo;&gt;&lt;/option&gt;</strong> element is mandatory when using <strong>allow-single-deselect</strong></aside>
+
+<h2 id="ngoptions-and-ngmodel">ngOptions and ngModel</h2>
+
+<p>Integration with <code class="prettyprint">ngModel</code> and <code class="prettyprint">ngOptions</code></p>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">multiple</span>
+        <span class="na">chosen</span>
+        <span class="na">ng-model=</span><span class="s">"state"</span>
+        <span class="na">ng-options=</span><span class="s">"s for s in states"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+
+<aside class="notice">Note: don&rsquo;t try to use <strong>ngModel</strong> with <strong>ngRepeat</strong>.  It won&rsquo;t work.  Use <strong>ngOptions</strong>.  It&rsquo;s better that way.</aside>
+
+<aside class="warning">
+  Also important: if your <strong>ngModel</strong> is <i>null</i> or <i>undefined</i>, you must manually include an empty <strong>&lt;option value=&ldquo;&rdquo;&gt;&lt;/option&gt;</strong> inside your <strong>&lt;select&gt;</strong>, otherwise you&rsquo;ll encounter strange off-by-one errors:
+
 </aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">multiple</span>
+        <span class="na">chosen</span>
+        <span class="na">ng-model=</span><span class="s">"state"</span>
+        <span class="na">ng-options=</span><span class="s">"s for s in states"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
+<p>This annoying behavior is alluded to in the examples in the <a href="http://docs.angularjs.org/api/ng.directive:select">documentation for ngOptions</a>.</p>
 
-<p>This endpoint retrieves all kittens.</p>
+<h2 id="angularjs-lt-select-gt-directives">AngularJS &lt;select&gt; directives</h2>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>Works well with other AngularJS directives</p>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">chosen</span>
+        <span class="na">ng-model=</span><span class="s">"state"</span>
+        <span class="na">ng-options=</span><span class="s">"s for s in states"</span>
+        <span class="na">ng-disabled=</span><span class="s">"editable"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<h2 id="remote-source-resource">Remote source $resource</h2>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="loading-from-a-remote-data-source">Loading from a remote data source</h3>
+
+<p>Include chosen-spinner.css and spinner.gif to show an Ajax spinner icon while your data is loading.  If the collection comes back empty, the directive will disable the element and show a default
+&ldquo;No values available&rdquo; message.  You can customize this message by passing in noResultsText in your options.</p>
+
+<h5 id="app-js">app.js</h5>
+<pre class="highlight javascript"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'App'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ngResource'</span><span class="p">,</span> <span class="s1">'localytics.directives'</span><span class="p">])</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'BeerCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$resource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">beers</span> <span class="o">=</span> <span class="nx">$resource</span><span class="p">(</span><span class="s1">'api/beers'</span><span class="p">).</span><span class="nx">query</span><span class="p">()</span>
+  <span class="p">});</span>
+</code></pre>
+
+<h5 id="index-html">index.html</h5>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">"BeerCtrl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">chosen</span>
+          <span class="na">data-placeholder=</span><span class="s">"Choose a beer"</span>
+          <span class="na">no-results-text=</span><span class="s">"'Could not find any beers :('"</span>
+          <span class="na">ng-model=</span><span class="s">"beer"</span>
+          <span class="na">ng-options=</span><span class="s">"b for b in beers"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+<p>Image of select defined above in loading state:  <img src="https://raw.github.com/localytics/angular-chosen/master/example/choose-a-beer.png"></p>
+
+<aside class="notice">Note: Assigning promises directly to scope is now deprecated in Angular 1.2+.  Assign the results of the promise to scope
+once the promise returns.  The loader animation will still work as long as the collection expression
+evaluates to `undefined` while your data is loading!</aside>
+
+<h2 id="ajax-http">AJAX $http</h2>
+
+<h5 id="app-js">app.js</h5>
+<pre class="highlight javascript"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'App'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'localytics.directives'</span><span class="p">])</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'PostCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$http</span><span class="p">(</span><span class="s1">'api/posts'</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$scope</span><span class="p">.</span><span class="nx">posts</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+</code></pre>
+
+<h5 id="index-html">index.html</h5>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">"PostCtrl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">chosen</span>
+          <span class="na">data-placeholder=</span><span class="s">"Choose a post"</span>
+          <span class="na">no-results-text=</span><span class="s">"'Could not find any post :('"</span>
+          <span class="na">ng-model=</span><span class="s">"post"</span>
+          <span class="na">ng-options=</span><span class="s">"p for p in posts"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+<h2 id="translate">Translate</h2>
+
+<p>There are 3 attributes to translate messages.
+As an attribute directive, you should pass a variable or a Value between quotes.</p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Attribute</th>
+<th>Default (English)</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>placeholder-text-single</td>
+<td>&#39;Select an Option&rsquo;</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>placeholder-text-multiple</td>
+<td>&#39;Select Some Options&rsquo;</td>
+</tr>
+<tr>
+<td>no-results-text</td>
+<td>&#39;No results match&rsquo;</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<h3 id="example-in-brazilian-portuguese">Example in Brazilian Portuguese</h3>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">multiple</span> <span class="na">chosen</span>
+    <span class="na">no-results-text=</span><span class="s">"'Nenhum resultado encontrado para sua busca'"</span>
+    <span class="na">placeholder-text-multiple=</span><span class="s">"'Selecione as opções'"</span>
+    <span class="na">ng-model=</span><span class="s">"state"</span> <span class="na">ng-options=</span><span class="s">"s for s in states"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<p><a href="http://plnkr.co/edit/P3bWW2?p=preview">Translate Example</a></p>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<h1 id="features">Features</h1>
 
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<ul>
+<li>Works with <code class="prettyprint">ngModel</code> and <code class="prettyprint">ngOptions</code></li>
+<li>Supports usage of promises in <code class="prettyprint">ngOptions</code></li>
+<li>Provides a &#39;loading&rsquo; animation when &#39;ngOptions&rsquo; collection is a promise backed by a remote source</li>
+<li>Pass options to <code class="prettyprint">Chosen</code> via attributes or by passing an object to the Chosen directive</li>
+</ul>
 
-<h3 id="http-request">HTTP Request</h3>
+          <h1 id="examples">Examples</h1>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<h2 id="similar-to-quot-states-quot-chosen">Similar to $(&ldquo;#states&rdquo;).chosen()</h2>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<iframe class="preview" src="http://embed.plnkr.co/fawiXh/" allowfullscreen></iframe>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
+<h2 id="chosen-attributes">Chosen attributes</h2>
 
-          <h1 id="errors">Errors</h1>
+<p>Angular Chosen Example using &lt;option&gt; and &lt;select&gt; with Chosen attributes</p>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<iframe class="preview" src="http://embed.plnkr.co/a3oBYM/" allowfullscreen></iframe>
 
-<p>The Kittn API uses the following error codes:</p>
+<h2 id="multiple-angular-chosen-example-using-ngmodel-and-ngoptions">Multiple Angular Chosen Example using ngModel and ngOptions</h2>
 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
-</tbody></table>
+<iframe class="preview" src="http://embed.plnkr.co/1U8KCH/" allowfullscreen></iframe>
+
+<h2 id="selected-quot-selected-quot-from-remote">selected=&ldquo;selected&rdquo; from remote</h2>
+<pre class="highlight html"><code><span class="nt">&lt;select</span> <span class="na">ng-options=</span><span class="s">"s.id as s.title for s in states"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/select&gt;</span>
+</code></pre>
+
+<iframe class="preview preview-big" src="http://embed.plnkr.co/cQEB5T/" allowfullscreen></iframe>
+
+<h2 id="lt-optgroup-gt">&lt;optgroup&gt;</h2>
+
+<p>Group by</p>
+
+<iframe class="preview preview-big" src="http://embed.plnkr.co/j0yIif/" allowfullscreen></iframe>
+
+<h2 id="translate">Translate</h2>
+
+<p>Example translated in Brazilian Portuguese Language</p>
+
+<iframe class="preview" src="http://embed.plnkr.co/P3bWW2/" allowfullscreen></iframe>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
           </div>
       </div>
     </div>
